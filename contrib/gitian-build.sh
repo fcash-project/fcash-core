@@ -30,7 +30,7 @@ commitFiles=true
 read -d '' usage <<- EOF
 Usage: $scriptName [-c|u|v|b|s|B|o|h|j|m|] signer version
 
-Run this script from the directory containing the fcash, gitian-builder, gitian.sigs.ltc, and fcash-detached-sigs.
+Run this script from the directory containing the fcash, gitian-builder, gitian.sigs.fcash, and fcash-detached-sigs.
 
 Arguments:
 signer          GPG signer to sign each build assert file
@@ -229,7 +229,7 @@ echo ${COMMIT}
 if [[ $setup = true ]]
 then
     sudo apt-get install ruby apache2 git apt-cacher-ng python-vm-builder qemu-kvm qemu-utils
-    git clone https://github.com/fcash-project/gitian.sigs.ltc.git
+    git clone https://github.com/fcash-project/gitian.sigs.fcash.git
     git clone https://github.com/fcash-project/fcash-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
     pushd ./gitian-builder
@@ -272,7 +272,7 @@ then
 	    echo "Compiling ${VERSION} Linux"
 	    echo ""
 	    ./bin/gbuild -j ${proc} -m ${mem} --commit fcash=${COMMIT} --url fcash=${url} ../fcash/contrib/gitian-descriptors/gitian-linux.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs.ltc/ ../fcash/contrib/gitian-descriptors/gitian-linux.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs.fcash/ ../fcash/contrib/gitian-descriptors/gitian-linux.yml
 	    mv build/out/fcash-*.tar.gz build/out/src/fcash-*.tar.gz ../fcash-binaries/${VERSION}
 	fi
 	# Windows
@@ -282,7 +282,7 @@ then
 	    echo "Compiling ${VERSION} Windows"
 	    echo ""
 	    ./bin/gbuild -j ${proc} -m ${mem} --commit fcash=${COMMIT} --url fcash=${url} ../fcash/contrib/gitian-descriptors/gitian-win.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs.ltc/ ../fcash/contrib/gitian-descriptors/gitian-win.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs.fcash/ ../fcash/contrib/gitian-descriptors/gitian-win.yml
 	    mv build/out/fcash-*-win-unsigned.tar.gz inputs/fcash-win-unsigned.tar.gz
 	    mv build/out/fcash-*.zip build/out/fcash-*.exe ../fcash-binaries/${VERSION}
 	fi
@@ -293,7 +293,7 @@ then
 	    echo "Compiling ${VERSION} Mac OSX"
 	    echo ""
 	    ./bin/gbuild -j ${proc} -m ${mem} --commit fcash=${COMMIT} --url fcash=${url} ../fcash/contrib/gitian-descriptors/gitian-osx.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs.ltc/ ../fcash/contrib/gitian-descriptors/gitian-osx.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs.fcash/ ../fcash/contrib/gitian-descriptors/gitian-osx.yml
 	    mv build/out/fcash-*-osx-unsigned.tar.gz inputs/fcash-osx-unsigned.tar.gz
 	    mv build/out/fcash-*.tar.gz build/out/fcash-*.dmg ../fcash-binaries/${VERSION}
 	fi
@@ -322,27 +322,27 @@ then
 	echo ""
 	echo "Verifying v${VERSION} Linux"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-linux ../fcash/contrib/gitian-descriptors/gitian-linux.yml
+	./bin/gverify -v -d ../gitian.sigs.fcash/ -r ${VERSION}-linux ../fcash/contrib/gitian-descriptors/gitian-linux.yml
 	# Windows
 	echo ""
 	echo "Verifying v${VERSION} Windows"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-win-unsigned ../fcash/contrib/gitian-descriptors/gitian-win.yml
+	./bin/gverify -v -d ../gitian.sigs.fcash/ -r ${VERSION}-win-unsigned ../fcash/contrib/gitian-descriptors/gitian-win.yml
 	# Mac OSX	
 	echo ""
 	echo "Verifying v${VERSION} Mac OSX"
 	echo ""	
-	./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-osx-unsigned ../fcash/contrib/gitian-descriptors/gitian-osx.yml
+	./bin/gverify -v -d ../gitian.sigs.fcash/ -r ${VERSION}-osx-unsigned ../fcash/contrib/gitian-descriptors/gitian-osx.yml
 	# Signed Windows
 	echo ""
 	echo "Verifying v${VERSION} Signed Windows"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-osx-signed ../fcash/contrib/gitian-descriptors/gitian-osx-signer.yml
+	./bin/gverify -v -d ../gitian.sigs.fcash/ -r ${VERSION}-osx-signed ../fcash/contrib/gitian-descriptors/gitian-osx-signer.yml
 	# Signed Mac OSX
 	echo ""
 	echo "Verifying v${VERSION} Signed Mac OSX"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-osx-signed ../fcash/contrib/gitian-descriptors/gitian-osx-signer.yml	
+	./bin/gverify -v -d ../gitian.sigs.fcash/ -r ${VERSION}-osx-signed ../fcash/contrib/gitian-descriptors/gitian-osx-signer.yml	
 	popd
 fi
 
@@ -358,7 +358,7 @@ then
 	    echo "Signing ${VERSION} Windows"
 	    echo ""
 	    ./bin/gbuild -i --commit signature=${COMMIT} ../fcash/contrib/gitian-descriptors/gitian-win-signer.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs.ltc/ ../fcash/contrib/gitian-descriptors/gitian-win-signer.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs.fcash/ ../fcash/contrib/gitian-descriptors/gitian-win-signer.yml
 	    mv build/out/fcash-*win64-setup.exe ../fcash-binaries/${VERSION}
 	    mv build/out/fcash-*win32-setup.exe ../fcash-binaries/${VERSION}
 	fi
@@ -369,7 +369,7 @@ then
 	    echo "Signing ${VERSION} Mac OSX"
 	    echo ""
 	    ./bin/gbuild -i --commit signature=${COMMIT} ../fcash/contrib/gitian-descriptors/gitian-osx-signer.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs.ltc/ ../fcash/contrib/gitian-descriptors/gitian-osx-signer.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs.fcash/ ../fcash/contrib/gitian-descriptors/gitian-osx-signer.yml
 	    mv build/out/fcash-osx-signed.dmg ../fcash-binaries/${VERSION}/fcash-${VERSION}-osx.dmg
 	fi
 	popd
