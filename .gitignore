@@ -10,7 +10,6 @@ src/test/test_fcash_fuzzy
 src/qt/test/test_fcash-qt
 
 # autoreconf
-Makefile.in
 aclocal.m4
 autom4te.cache/
 build-aux/config.guess
@@ -79,7 +78,6 @@ src/qt/bitcoin-qt.includes
 
 # Compilation and Qt preprocessor part
 *.qm
-Makefile
 fcash-qt
 fcash-Qt.app
 background.tiff*
