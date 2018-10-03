@@ -115,3 +115,9 @@ test/cache/*
 
 libbitcoinconsensus.pc
 contrib/devtools/split-debug.sh
+build-bitcoin-qt-Desktop_Qt_5_10_0_clang_64bit-Debug/.qmake.stash
+.vscode/settings.json
+build-bitcoin-qt-Desktop_Qt_5_10_0_clang_64bit-Debug/bitcoin-qt.app/Contents/Info.plist
+build-bitcoin-qt-Desktop_Qt_5_10_0_clang_64bit-Debug/bitcoin-qt.app/Contents/PkgInfo
+build-bitcoin-qt-Desktop_Qt_5_10_0_clang_64bit-Debug/bitcoin-qt.app/Contents/Resources/empty.lproj
+contrib/bitcoin-qt.pro.user
