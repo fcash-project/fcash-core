@@ -121,3 +121,5 @@ build-bitcoin-qt-Desktop_Qt_5_10_0_clang_64bit-Debug/bitcoin-qt.app/Contents/Inf
 build-bitcoin-qt-Desktop_Qt_5_10_0_clang_64bit-Debug/bitcoin-qt.app/Contents/PkgInfo
 build-bitcoin-qt-Desktop_Qt_5_10_0_clang_64bit-Debug/bitcoin-qt.app/Contents/Resources/empty.lproj
 contrib/bitcoin-qt.pro.user
+share/pixmaps/nsis-wizard.psd
+share/pixmaps/nsis-header.psd
