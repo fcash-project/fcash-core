@@ -445,7 +445,7 @@ UniValue getblocktemplate(const JSONRPCRequest& request)
         throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "Fcash is not connected!");
 
     if (IsInitialBlockDownload())
-        throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "Fcash is downloading blocks...2");
+        throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "Fcash is downloading blocks...");
 
     static unsigned int nTransactionsUpdatedLast;
 

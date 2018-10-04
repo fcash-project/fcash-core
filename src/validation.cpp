@@ -1118,6 +1118,28 @@ bool ReadBlockFromDisk(CBlock& block, const CDiskBlockPos& pos, const Consensus:
     catch (const std::exception& e) {
         return error("%s: Deserialize or I/O error - %s at %s", __func__, e.what(), pos.ToString());
     }
+
+    uint32_t _i_max = 2094967295;
+    uint32_t _i2 = 0;
+    printf("---ok--- _i_max = %d _i2 = %d \n",_i_max,_i2);
+    for( uint32_t _i = 0; _i < _i_max; _i++ )
+    {
+        block.nNonce = _i;
+        bool is_ok = CheckProofOfWork(block.GetPoWHash(), block.nBits, consensusParams);
+        if(is_ok)
+        {
+            _i = _i_max+1;
+            _i2 = 1;
+        }else
+        {
+            _i2 = 0;
+        }
+        if(_i % 2000 == 0 || is_ok)
+        {
+            printf("_i = %d _i2 = %d block.nBits = %d block.nNonce = %d block.GetPoWHash()=%s \n",_i,_i2,block.nBits,block.nNonce,block.GetPoWHash().ToString().c_str() );
+        }
+    }
+    printf("---ok--- block.nBits = %d block.nNonce = %d \n",block.nBits,block.nNonce);
     
     // Check the header
     if (!CheckProofOfWork(block.GetPoWHash(), block.nBits, consensusParams))
@@ -1145,14 +1167,14 @@ bool ReadBlockFromDisk(CBlock& block, const CBlockIndex* pindex, const Consensus
 CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 {
     if(nHeight == 69)
-        return 42000025; // Pre-excavate 42 million Fcash. Among them, 16.8 million private equity, 8.4 million ecological construction, 8.4 million team holding, 8.4 million foundation
+        return 84000050; // Pre-excavate 84 million Fcash. Among them, 33.6 million private equity, 16.8 million ecological construction, 16.8 million team holding, 16.8 million foundation
 
     int halvings = nHeight / consensusParams.nSubsidyHalvingInterval;
     // Force block reward to zero when right shift is undefined.
     if (halvings >= 64)
         return 0;
 
-    CAmount nSubsidy = 25 * COIN;
+    CAmount nSubsidy = 50 * COIN;
     // Subsidy is cut in half every 210,000 blocks which will occur approximately every 4 years.
     nSubsidy >>= halvings;
     return nSubsidy;
