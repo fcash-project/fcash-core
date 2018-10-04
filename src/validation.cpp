@@ -1196,7 +1196,7 @@ bool IsInitialBlockDownload()
         
     if (chainActive.Tip()->GetBlockTime() < (GetTime() - nMaxTipAge))
     {
-        LogPrintf("IsInitialBlockDownload = 1-9 1:%d  2%d  GetTime:%d  nMaxTipAge:%d \n",chainActive.Tip()->GetBlockTime(),(GetTime() - nMaxTipAge),GetTime(), nMaxTipAge);
+        // LogPrintf("IsInitialBlockDownload = 1-9 1:%d  2:%d  GetTime:%d  nMaxTipAge:%d \n",chainActive.Tip()->GetBlockTime(),(GetTime() - nMaxTipAge),GetTime(), nMaxTipAge);
         return true;
     }
     LogPrintf("IsInitialBlockDownload = 1-10 \n");
