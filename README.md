@@ -87,3 +87,12 @@ Minerd
 ./minerd -a scrypt -o 127.0.0.1:9332 -O fcashuser:fcashpass
 
 curl --user fcashuser:fcashpass --data-binary '{"id": 0, "method": "getblocktemplate", "params": [{"capabilities": ["coinbasetxn", "workid", "coinbase/append"]}]}' -H 'content-type: text/plain;' http://127.0.0.1:9332
+
+
+addnode
+------------
+./src/fcash-cli addnode "139.162.67.34:9333" "add"
+./src/fcash-cli addnode "59.110.9.93:9333" "add"
+
+./src/fcash-cli getaddednodeinfo
+
