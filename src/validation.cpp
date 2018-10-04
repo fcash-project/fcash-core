@@ -1190,13 +1190,13 @@ bool IsInitialBlockDownload()
     }
     if (chainActive.Tip()->nChainWork < nMinimumChainWork)
     {
-        printf("IsInitialBlockDownload = 1-8 \n");
+        LogPrintf("IsInitialBlockDownload = 1-8 \n");
         return true;
     }
         
     if (chainActive.Tip()->GetBlockTime() < (GetTime() - nMaxTipAge))
     {
-        printf("IsInitialBlockDownload = 1-9 \n");
+        LogPrintf("IsInitialBlockDownload = 1-9 1:%d  2%d  GetTime:%d  nMaxTipAge:%d \n",chainActive.Tip()->GetBlockTime(),(GetTime() - nMaxTipAge),GetTime(), nMaxTipAge);
         return true;
     }
     LogPrintf("IsInitialBlockDownload = 1-10 \n");
