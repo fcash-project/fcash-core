@@ -123,12 +123,12 @@ public:
         // nPruneAfterHeight = 100000;
         nPruneAfterHeight = 10;
 
-        genesis = CreateGenesisBlock(1538652903, 283567, 0x1e0ffff0, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1538654872, 2125180, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        // assert(consensus.hashGenesisBlock == uint256S("0xce463438ba6a1dc62c89613a70ff88df12c1b36df7a30db3dd4521b0fef9a27f"));
-        // assert(genesis.hashMerkleRoot == uint256S("0x8947999b73008ac8cda2f56d4a9fd7ec1c63c64f288753ece551edfe75652c1c"));
-        printf("consensus.hashGenesisBlock = %s \n",consensus.hashGenesisBlock.ToString().c_str() );
-        printf("genesis.hashMerkleRoot = %s \n",genesis.hashMerkleRoot.ToString().c_str()         );
+        assert(consensus.hashGenesisBlock == uint256S("0xa2d80442ad5f64eb9bc08a9180c553d97a9a03f9825ee90e0b84f045e074901b"));
+        assert(genesis.hashMerkleRoot == uint256S("0x7efa5a7f91620231a9056782c4eb984b0ebc65c93b2b46d9cec700b84560ee6c"));
+        //printf("consensus.hashGenesisBlock = %s \n",consensus.hashGenesisBlock.ToString().c_str() );
+        //printf("genesis.hashMerkleRoot = %s \n",genesis.hashMerkleRoot.ToString().c_str()         );
 
         // Note that of those with the service bits flag, most only support a subset of possible options
         // vSeeds.emplace_back("seed-a.fcash.loshan.co.uk");
@@ -234,12 +234,12 @@ public:
         nDefaultPort = 19335;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1538652903, 13654, 0x1e0ffff0, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1538652903, 396176, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        // assert(consensus.hashGenesisBlock == uint256S("0x4d9df0c4594ff0ed8357fc3b912a69f08f1d13cea81693c94e3e11183f439f77"));
-        // assert(genesis.hashMerkleRoot == uint256S("0x8947999b73008ac8cda2f56d4a9fd7ec1c63c64f288753ece551edfe75652c1c"));
-        printf("consensus.hashGenesisBlock = %s \n",consensus.hashGenesisBlock.ToString().c_str() );
-        printf("genesis.hashMerkleRoot = %s \n",genesis.hashMerkleRoot.ToString().c_str()         );
+        assert(consensus.hashGenesisBlock == uint256S("0x0f61047909eeaddcc823a62a8174a74f64b0b0f9333ddd38c499bc8204c6ae1b"));
+        assert(genesis.hashMerkleRoot == uint256S("0x7efa5a7f91620231a9056782c4eb984b0ebc65c93b2b46d9cec700b84560ee6c"));
+        // printf("consensus.hashGenesisBlock = %s \n",consensus.hashGenesisBlock.ToString().c_str() );
+        // printf("genesis.hashMerkleRoot = %s \n",genesis.hashMerkleRoot.ToString().c_str()         );
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -324,12 +324,12 @@ public:
         nDefaultPort = 19444;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1538652903, 1, 0x207fffff, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1538652903, 0, 0x207fffff, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        // assert(consensus.hashGenesisBlock == uint256S("0x93df992df28ca3e902d9e91115ada6789d9c07b6207ff9895b34424975a12ec0"));
-        // assert(genesis.hashMerkleRoot == uint256S("0x8947999b73008ac8cda2f56d4a9fd7ec1c63c64f288753ece551edfe75652c1c"));
-        printf("consensus.hashGenesisBlock = %s \n",consensus.hashGenesisBlock.ToString().c_str() );
-        printf("genesis.hashMerkleRoot = %s \n",genesis.hashMerkleRoot.ToString().c_str()         );
+        assert(consensus.hashGenesisBlock == uint256S("0xf6feaea655c09d9027b4e3f25c48cbe270c898d330000e6c5edfe9fc395ddd41"));
+        assert(genesis.hashMerkleRoot == uint256S("0x7efa5a7f91620231a9056782c4eb984b0ebc65c93b2b46d9cec700b84560ee6c"));
+        // printf("consensus.hashGenesisBlock = %s \n",consensus.hashGenesisBlock.ToString().c_str() );
+        // printf("genesis.hashMerkleRoot = %s \n",genesis.hashMerkleRoot.ToString().c_str()         );
 
         vFixedSeeds.clear(); //!< Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();      //!< Regtest mode doesn't have any DNS seeds.

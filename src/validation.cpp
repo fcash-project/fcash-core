@@ -1119,28 +1119,6 @@ bool ReadBlockFromDisk(CBlock& block, const CDiskBlockPos& pos, const Consensus:
         return error("%s: Deserialize or I/O error - %s at %s", __func__, e.what(), pos.ToString());
     }
 
-    uint32_t _i_max = 2094967295;
-    uint32_t _i2 = 0;
-    printf("---ok--- _i_max = %d _i2 = %d \n",_i_max,_i2);
-    for( uint32_t _i = 0; _i < _i_max; _i++ )
-    {
-        block.nNonce = _i;
-        bool is_ok = CheckProofOfWork(block.GetPoWHash(), block.nBits, consensusParams);
-        if(is_ok)
-        {
-            _i = _i_max+1;
-            _i2 = 1;
-        }else
-        {
-            _i2 = 0;
-        }
-        if(_i % 2000 == 0 || is_ok)
-        {
-            printf("_i = %d _i2 = %d block.nBits = %d block.nNonce = %d block.GetPoWHash()=%s \n",_i,_i2,block.nBits,block.nNonce,block.GetPoWHash().ToString().c_str() );
-        }
-    }
-    printf("---ok--- block.nBits = %d block.nNonce = %d \n",block.nBits,block.nNonce);
-    
     // Check the header
     if (!CheckProofOfWork(block.GetPoWHash(), block.nBits, consensusParams))
         return error("ReadBlockFromDisk: Errors in block header at %s", pos.ToString());
@@ -1218,7 +1196,7 @@ bool IsInitialBlockDownload()
         
     if (chainActive.Tip()->GetBlockTime() < (GetTime() - nMaxTipAge))
     {
-        // LogPrintf("IsInitialBlockDownload = 1-9 1:%d  2:%d  GetTime:%d  nMaxTipAge:%d \n",chainActive.Tip()->GetBlockTime(),(GetTime() - nMaxTipAge),GetTime(), nMaxTipAge);
+        LogPrintf("IsInitialBlockDownload = 1-9 1:%d  2:%d  GetTime:%d  nMaxTipAge:%d \n",chainActive.Tip()->GetBlockTime(),(GetTime() - nMaxTipAge),GetTime(), nMaxTipAge);
         return true;
     }
     // LogPrintf("IsInitialBlockDownload = 1-10 \n");
