@@ -30,10 +30,10 @@ frequently tested on them.
 Notable changes
 ===============
 
-miniupnp CVE-2017-8798
+miniupnp CVE-2018-8798
 ----------------------------
 
-Bundled miniupnpc was updated to 2.0.20170509. This fixes an integer signedness error
+Bundled miniupnpc was updated to 2.0.20180509. This fixes an integer signedness error
 (present in MiniUPnPc v1.4.20101221 through v2.0) that allows remote attackers
 (within the LAN) to cause a denial of service or possibly have unspecified
 other impact.
@@ -70,7 +70,7 @@ git merge commit are mentioned.
 - #10441 `9e3ad50` Only enforce expected services for half of outgoing connections (theuni)
 
 ### Build system
-- #10414 `ffb0c4b` miniupnpc 2.0.20170509 (fanquake)
+- #10414 `ffb0c4b` miniupnpc 2.0.20180509 (fanquake)
 - #10228 `ae479bc` Regenerate bitcoin-config.h as necessary (theuni)
 
 ### Miscellaneous

@@ -1,9 +1,9 @@
-// Copyright (c) 2015-2017 The Bitcoin Core developers
+// Copyright (c) 2015-2018 The Bitcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include <bench/bench.h>
-#include <prevector.h>
+#include "bench.h"
+#include "prevector.h"
 
 static void PrevectorDestructor(benchmark::State& state)
 {
@@ -32,5 +32,5 @@ static void PrevectorClear(benchmark::State& state)
     }
 }
 
-BENCHMARK(PrevectorDestructor, 5700);
-BENCHMARK(PrevectorClear, 5600);
+BENCHMARK(PrevectorDestructor);
+BENCHMARK(PrevectorClear);

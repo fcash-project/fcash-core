@@ -66,13 +66,13 @@ address. The same address can be used in more than one notification.
 
 For instance:
 
-    $ fcashd -zmqpubhashtx=tcp://127.0.0.1:28332 \
+    $ fcashd -zmqpubhashtx=tcp://127.0.0.1:29527 \
                -zmqpubrawtx=ipc:///tmp/fcashd.tx.raw
 
 Each PUB notification has a topic and body, where the header
 corresponds to the notification type. For instance, for the
 notification `-zmqpubhashtx` the topic is `hashtx` (no null
-terminator) and the body is the transaction hash (32
+terminator) and the body is the hexadecimal transaction hash (32
 bytes).
 
 These options can also be provided in fcash.conf.

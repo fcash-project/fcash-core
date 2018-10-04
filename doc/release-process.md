@@ -33,8 +33,8 @@ If you're using the automated script (found in [contrib/gitian-build.sh](/contri
 Check out the source code in the following directory hierarchy.
 
     cd /path/to/your/toplevel/build
-    git clone https://github.com/fcash-project/gitian.sigs.fcash.git
-    git clone https://github.com/fcash-project/fcash-detached-sigs.git
+    git clone https://github.com/fcash-project/gitian.sigs.huc.git
+    git clone https://github.com/fcash-project/fcash-core-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
     git clone https://github.com/fcash-project/fcash-core.git
 
@@ -68,9 +68,9 @@ Setup Gitian descriptors:
     git checkout v${VERSION}
     popd
 
-Ensure your gitian.sigs.fcash are up-to-date if you wish to gverify your builds against other Gitian signatures.
+Ensure your gitian.sigs.huc are up-to-date if you wish to gverify your builds against other Gitian signatures.
 
-    pushd ./gitian.sigs.fcash
+    pushd ./gitian.sigs.huc
     git pull
     popd
 
@@ -112,16 +112,16 @@ The gbuild invocations below <b>DO NOT DO THIS</b> by default.
 
     pushd ./gitian-builder
     ./bin/gbuild --num-make 2 --memory 3000 --commit fcash=v${VERSION} ../fcash/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs.fcash/ ../fcash/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs.huc/ ../fcash/contrib/gitian-descriptors/gitian-linux.yml
     mv build/out/fcash-*.tar.gz build/out/src/fcash-*.tar.gz ../
 
     ./bin/gbuild --num-make 2 --memory 3000 --commit fcash=v${VERSION} ../fcash/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs.fcash/ ../fcash/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs.huc/ ../fcash/contrib/gitian-descriptors/gitian-win.yml
     mv build/out/fcash-*-win-unsigned.tar.gz inputs/fcash-win-unsigned.tar.gz
     mv build/out/fcash-*.zip build/out/fcash-*.exe ../
 
     ./bin/gbuild --num-make 2 --memory 3000 --commit fcash=v${VERSION} ../fcash/contrib/gitian-descriptors/gitian-osx.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs.fcash/ ../fcash/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs.huc/ ../fcash/contrib/gitian-descriptors/gitian-osx.yml
     mv build/out/fcash-*-osx-unsigned.tar.gz inputs/fcash-osx-unsigned.tar.gz
     mv build/out/fcash-*.tar.gz build/out/fcash-*.dmg ../
     popd
@@ -132,7 +132,7 @@ Build output expected:
   2. linux 32-bit and 64-bit dist tarballs (`fcash-${VERSION}-linux[32|64].tar.gz`)
   3. windows 32-bit and 64-bit unsigned installers and dist zips (`fcash-${VERSION}-win[32|64]-setup-unsigned.exe`, `fcash-${VERSION}-win[32|64].zip`)
   4. OS X unsigned installer and dist tarball (`fcash-${VERSION}-osx-unsigned.dmg`, `fcash-${VERSION}-osx64.tar.gz`)
-  5. Gitian signatures (in `gitian.sigs.fcash/${VERSION}-<linux|{win,osx}-unsigned>/(your Gitian key)/`)
+  5. Gitian signatures (in `gitian.sigs.huc/${VERSION}-<linux|{win,osx}-unsigned>/(your Gitian key)/`)
 
 ### Verify other gitian builders signatures to your own. (Optional)
 
@@ -144,21 +144,21 @@ Add other gitian builders keys to your gpg keyring, and/or refresh keys.
 Verify the signatures
 
     pushd ./gitian-builder
-    ./bin/gverify -v -d ../gitian.sigs.fcash/ -r ${VERSION}-linux ../fcash/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gverify -v -d ../gitian.sigs.fcash/ -r ${VERSION}-win-unsigned ../fcash/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gverify -v -d ../gitian.sigs.fcash/ -r ${VERSION}-osx-unsigned ../fcash/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gverify -v -d ../gitian.sigs.huc/ -r ${VERSION}-linux ../fcash/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gverify -v -d ../gitian.sigs.huc/ -r ${VERSION}-win-unsigned ../fcash/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gverify -v -d ../gitian.sigs.huc/ -r ${VERSION}-osx-unsigned ../fcash/contrib/gitian-descriptors/gitian-osx.yml
     popd
 
 ### Next steps:
 
-Commit your signature to gitian.sigs.fcash:
+Commit your signature to gitian.sigs.huc:
 
-    pushd gitian.sigs.fcash
+    pushd gitian.sigs.huc
     git add ${VERSION}-linux/${SIGNER}
     git add ${VERSION}-win-unsigned/${SIGNER}
     git add ${VERSION}-osx-unsigned/${SIGNER}
     git commit -a
-    git push  # Assuming you can push to the gitian.sigs.fcash tree
+    git push  # Assuming you can push to the gitian.sigs.huc tree
     popd
 
 Codesigner only: Create Windows/OS X detached signatures:
@@ -195,14 +195,14 @@ Codesigner only: Commit the detached codesign payloads:
 Non-codesigners: wait for Windows/OS X detached signatures:
 
 - Once the Windows/OS X builds each have 3 matching signatures, they will be signed with their respective release keys.
-- Detached signatures will then be committed to the [fcash-detached-sigs](https://github.com/fcash-project/fcash-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
+- Detached signatures will then be committed to the [fcash-detached-sigs](https://github.com/fcash-project/fcash-core-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
 
 Create (and optionally verify) the signed OS X binary:
 
     pushd ./gitian-builder
     ./bin/gbuild -i --commit signature=v${VERSION} ../fcash/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs.fcash/ ../fcash/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs.fcash/ -r ${VERSION}-osx-signed ../fcash/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs.huc/ ../fcash/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs.huc/ -r ${VERSION}-osx-signed ../fcash/contrib/gitian-descriptors/gitian-osx-signer.yml
     mv build/out/fcash-osx-signed.dmg ../fcash-${VERSION}-osx.dmg
     popd
 
@@ -210,19 +210,19 @@ Create (and optionally verify) the signed Windows binaries:
 
     pushd ./gitian-builder
     ./bin/gbuild -i --commit signature=v${VERSION} ../fcash/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs.fcash/ ../fcash/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs.fcash/ -r ${VERSION}-win-signed ../fcash/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs.huc/ ../fcash/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs.huc/ -r ${VERSION}-win-signed ../fcash/contrib/gitian-descriptors/gitian-win-signer.yml
     mv build/out/fcash-*win64-setup.exe ../fcash-${VERSION}-win64-setup.exe
     mv build/out/fcash-*win32-setup.exe ../fcash-${VERSION}-win32-setup.exe
     popd
 
 Commit your signature for the signed OS X/Windows binaries:
 
-    pushd gitian.sigs.fcash
+    pushd gitian.sigs.huc
     git add ${VERSION}-osx-signed/${SIGNER}
     git add ${VERSION}-win-signed/${SIGNER}
     git commit -a
-    git push  # Assuming you can push to the gitian.sigs.fcash tree
+    git push  # Assuming you can push to the gitian.sigs.huc tree
     popd
 
 ### After 3 or more people have gitian-built and their results match:
@@ -251,7 +251,7 @@ The `*-debug*` files generated by the gitian build contain debug symbols
 for troubleshooting by developers. It is assumed that anyone that is interested
 in debugging can run gitian to generate the files for themselves. To avoid
 end-user confusion about which file to pick, as well as save storage
-space *do not upload these to the fcash.cash server, nor put them in the torrent*.
+space *do not upload these to the https://www.fcash.cash/ server, nor put them in the torrent*.
 
 - GPG-sign it, delete the unsigned file:
 ```
@@ -261,17 +261,17 @@ rm SHA256SUMS
 (the digest algorithm is forced to sha256 to avoid confusion of the `Hash:` header that GPG adds with the SHA256 used for the files)
 Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spurious/nonsensical entry.
 
-- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the fcash.cash server.
+- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the  Fcash.cash server.
 
 ```
 
-- Update fcash.cash version
+- Update Fcash.cash version
 
 - Announce the release:
 
   - fcash-dev and fcash-dev mailing list
 
-  - blog.fcash.cash blog post
+  - Fcash.cash blog post
 
   - Update title of #fcash and #fcash-dev on Freenode IRC
 

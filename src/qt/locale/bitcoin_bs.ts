@@ -32,10 +32,6 @@
     </context>
 <context>
     <name>Intro</name>
-    <message>
-        <source>Fcash</source>
-        <translation>Fcash</translation>
-    </message>
     </context>
 <context>
     <name>ModalOverlay</name>

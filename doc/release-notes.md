@@ -1,9 +1,8 @@
-Bitcoin Core version 0.16.3 is now available from:
+Bitcoin Core version *0.15.0.1* is now available from:
 
-  <https://bitcoincore.org/bin/bitcoin-core-0.16.3/>
+  <https://bitcoin.org/bin/bitcoin-core-0.15.0.1/>
 
-This is a new minor version release, with various bugfixes
-as well as updated translations.
+This is a minor bug fix for 0.15.0.
 
 Please report bugs using the issue tracker at GitHub:
 
@@ -17,25 +16,33 @@ How to Upgrade
 ==============
 
 If you are running an older version, shut it down. Wait until it has completely
-shut down (which might take a few minutes for older versions), then run the
+shut down (which might take a few minutes for older versions), then run the 
 installer (on Windows) or just copy over `/Applications/Bitcoin-Qt` (on Mac)
 or `bitcoind`/`bitcoin-qt` (on Linux).
 
-The first time you run version 0.15.0 or newer, your chainstate database will be converted to a
-new format, which will take anywhere from a few minutes to half an hour,
-depending on the speed of your machine.
+The first time you run version 0.15.0 or higher, your chainstate database will
+be converted to a new format, which will take anywhere from a few minutes to
+half an hour, depending on the speed of your machine.
+
+The file format of `fee_estimates.dat` changed in version 0.15.0. Hence, a
+downgrade from version 0.15.0 or upgrade to version 0.15.0 will cause all fee
+estimates to be discarded.
 
 Note that the block database format also changed in version 0.8.0 and there is no
-automatic upgrade code from before version 0.8 to version 0.15.0 or higher. Upgrading
-directly from 0.7.x and earlier without re-downloading the blockchain is not supported.
+automatic upgrade code from before version 0.8 to version 0.15.0. Upgrading
+directly from 0.7.x and earlier without redownloading the blockchain is not supported.
 However, as usual, old wallet versions are still supported.
 
 Downgrading warning
 -------------------
 
-Wallets created in 0.16 and later are not compatible with versions prior to 0.16
-and will not work if you try to use newly created wallets in older versions. Existing
-wallets that were created with older versions are not affected by this.
+The chainstate database for this release is not compatible with previous
+releases, so if you run 0.15 and then decide to switch back to any
+older version, you will need to run the old release with the `-reindex-chainstate`
+option to rebuild the chainstate data structures in the old format.
+
+If your node has pruning enabled, this will entail re-downloading and
+processing the entire blockchain.
 
 Compatibility
 ==============
@@ -49,42 +56,28 @@ frequently tested on them.
 Notable changes
 ===============
 
-Denial-of-Service vulnerability
--------------------------------
+GUI startup crash issue
+-------------------------
 
-A denial-of-service vulnerability exploitable by miners has been discovered in
-Bitcoin Core versions 0.14.0 up to 0.16.2. It is recommended to upgrade any of
-the vulnerable versions to 0.16.3 as soon as possible.
+After upgrade to 0.15.0, some clients would crash at startup because a custom
+fee setting was configured that no longer exists in the GUI. This is a minimal
+patch to avoid this issue from occuring.
 
-0.16.3 change log
-------------------
+0.15.0.1 Change log
+====================
 
-### Consensus
-- #14249 `696b936` Fix crash bug with duplicate inputs within a transaction (TheBlueMatt, sdaftuar)
+-  #11332 `46c8d23` Fix possible crash with invalid nCustomFeeRadio in QSettings (achow101, TheBlueMatt)
 
-### RPC and other APIs
-- #13547 `212ef1f` Make `signrawtransaction*` give an error when amount is needed but missing (ajtowns)
-
-### Miscellaneous
-- #13655 `1cdbea7` bitcoinconsensus: invalid flags error should be set to `bitcoinconsensus_err` (afk11)
-
-### Documentation
-- #13844 `11b9dbb` correct the help output for -prune (hebasto)
+Also the manpages were updated, as this was forgotten for 0.15.0.
 
 Credits
 =======
 
 Thanks to everyone who directly contributed to this release:
 
-- Anthony Towns
-- Hennadii Stepanov
+- Andrew Chow
 - Matt Corallo
-- Suhas Daftuar
-- Thomas Kerin
+- Jonas Schnelli
 - Wladimir J. van der Laan
-
-And to those that reported security issues:
-
-- beardnboobies
 
 As well as everyone that helped translating on [Transifex](https://www.transifex.com/projects/p/bitcoin/).

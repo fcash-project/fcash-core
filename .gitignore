@@ -1,15 +1,16 @@
 *.tar.gz
 
 *.exe
-src/fcash
-src/fcashd
-src/fcash-cli
-src/fcash-tx
-src/test/test_fcash
-src/test/test_fcash_fuzzy
-src/qt/test/test_fcash-qt
+src/bitcoin
+src/bitcoind
+src/bitcoin-cli
+src/bitcoin-tx
+src/test/test_bitcoin
+src/test/test_bitcoin_fuzzy
+src/qt/test/test_bitcoin-qt
 
 # autoreconf
+Makefile.in
 aclocal.m4
 autom4te.cache/
 build-aux/config.guess
@@ -43,12 +44,6 @@ src/qt/forms/ui_*.h
 
 src/qt/test/moc*.cpp
 
-src/qt/bitcoin-qt.config
-src/qt/bitcoin-qt.creator
-src/qt/bitcoin-qt.creator.user
-src/qt/bitcoin-qt.files
-src/qt/bitcoin-qt.includes
-
 .deps
 .dirstamp
 .libs
@@ -78,16 +73,18 @@ src/qt/bitcoin-qt.includes
 
 # Compilation and Qt preprocessor part
 *.qm
-fcash-qt
-fcash-Qt.app
+Makefile
+bitcoin-qt
+Bitcoin-Qt.app
 background.tiff*
 
 # Unit-tests
 Makefile.test
-fcash-qt_test
+bitcoin-qt_test
 
 # Resources cpp
 qrc_*.cpp
+
 # Mac specific
 .DS_Store
 build
@@ -96,7 +93,7 @@ build
 *.gcno
 *.gcda
 /*.info
-test_fcash.coverage/
+test_bitcoin.coverage/
 total.coverage/
 coverage_percent.txt
 
@@ -113,14 +110,11 @@ test/cache/*
 
 libbitcoinconsensus.pc
 contrib/devtools/split-debug.sh
-build-bitcoin-qt-Desktop_Qt_5_10_0_clang_64bit-Debug/.qmake.stash
-.vscode/settings.json
-build-bitcoin-qt-Desktop_Qt_5_10_0_clang_64bit-Debug/bitcoin-qt.app/Contents/Info.plist
-build-bitcoin-qt-Desktop_Qt_5_10_0_clang_64bit-Debug/bitcoin-qt.app/Contents/PkgInfo
-build-bitcoin-qt-Desktop_Qt_5_10_0_clang_64bit-Debug/bitcoin-qt.app/Contents/Resources/empty.lproj
-contrib/bitcoin-qt.pro.user
-share/pixmaps/nsis-wizard.psd
-share/pixmaps/nsis-header.psd
-src/Makefile
-Makefile
-Makefile
+src/fcash-cli
+src/fcash-tx
+src/test/test_fcash_fuzzy
+src/test/test_fcash
+src/qt/test/test_fcash-qt
+src/qt/fcash-qt
+src/fcashd
+share/pixmaps/bitcoin128的副本.png

@@ -1,11 +1,11 @@
 Fcash Core integration/staging tree
 =====================================
 
-[![Build Status](https://travis-ci.org/fcash-project/fcash.svg?branch=master)](https://travis-ci.org/fcash-project/fcash)
+[![Build Status](https://travis-ci.org/fcash-project/fcash-core.svg?branch=master)](https://travis-ci.org/fcash-project/fcash-core)
 
-https://fcash.cash
+https://www.fcash.cash/
 
-What is Fcash?
+What is Fcash coin?
 ----------------
 
 Fcash is an experimental digital currency that enables instant payments to
@@ -15,7 +15,7 @@ out collectively by the network. Fcash Core is the name of open source
 software which enables the use of this currency.
 
 For more information, as well as an immediately useable, binary version of
-the Fcash Core software, see [https://fcash.cash](https://fcash.cash).
+the Fcash Core software, see [https://www.fcash.cash/](https://www.fcash.cash/). 
 
 License
 -------
@@ -77,25 +77,3 @@ Translations are periodically pulled from Transifex and merged into the git repo
 
 **Important**: We do not accept translation changes as GitHub pull requests because the next
 pull from Transifex would automatically overwrite them again.
-
-Minerd
-------------
-./minerd -o http://127.0.0.1:9332 -u fcashuser -p fcashpass --coinbase-addr=FaiTgmtJ6JPY9gM9pD2sCEiHdLFNrQjH5E -t 1 -D -P
-./minerd -o 127.0.0.1:9332 --user=fcashuser --pass=fcashpass --coinbase-addr=FaiTgmtJ6JPY9gM9pD2sCEiHdLFNrQjH5E -t 1 -D -P
-./minerd -o 127.0.0.1:9332 --user=fcashuser --pass=fcashpass --coinbase-addr=FaiTgmtJ6JPY9gM9pD2sCEiHdLFNrQjH5E
-
-./minerd -a scrypt -o 127.0.0.1:9332 --user=fcashuser --pass=fcashpass -t 1 -D --no-stratum --no-longpoll --no-getwork --coinbase-addr=FaiTgmtJ6JPY9gM9pD2sCEiHdLFNrQjH5E
-
-./minerd -a scrypt -o 127.0.0.1:9332 -O fcashuser:fcashpass
-
-curl --user fcashuser:fcashpass --data-binary '{"method": "getblocktemplate", "params": [{"capabilities": ["coinbasetxn", "coinbasevalue", "longpoll", "workid"]}], "id":0}' -H 'content-type: text/plain;' http://127.0.0.1:9332
-
-
-addnode
-------------
-./src/fcash-cli addnode "139.162.67.34:9333" "add"
-./src/fcash-cli addnode "59.110.9.93:9333" "add"
-./src/fcash-cli addnode "60.205.0.142:9333" "add"
-
-./src/fcash-cli getaddednodeinfo
-

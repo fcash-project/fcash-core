@@ -1,13 +1,13 @@
-// Copyright (c) 2015-2017 The Bitcoin Core developers
+// Copyright (c) 2015 The Bitcoin Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include <chain.h>
-#include <chainparams.h>
-#include <pow.h>
-#include <random.h>
-#include <util.h>
-#include <test/test_bitcoin.h>
+#include "chain.h"
+#include "chainparams.h"
+#include "pow.h"
+#include "random.h"
+#include "util.h"
+#include "test/test_bitcoin.h"
 
 #include <boost/test/unit_test.hpp>
 
@@ -29,7 +29,7 @@ BOOST_AUTO_TEST_CASE(get_next_work)
 BOOST_AUTO_TEST_CASE(get_next_work_pow_limit)
 {
     const auto chainParams = CreateChainParams(CBaseChainParams::MAIN);
-    int64_t nLastRetargetTime = 1317972665; // Block #0
+    int64_t nLastRetargetTime = 1516871551; // Block #0
     CBlockIndex pindexLast;
     pindexLast.nHeight = 2015;
     pindexLast.nTime = 1318480354;  // Block #2015

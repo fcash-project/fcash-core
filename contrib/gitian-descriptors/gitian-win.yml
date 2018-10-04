@@ -1,5 +1,5 @@
 ---
-name: "fcash-win-0.16"
+name: "fcash-win-0.15"
 enable_cache: true
 suites:
 - "trusty"

@@ -5,7 +5,7 @@ Setup
 ---------------------
 Fcash Core is the original Fcash client and it builds the backbone of the network. It downloads and, by default, stores the entire history of Fcash transactions (which is currently more than 7 GBs); depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more.
 
-To download Fcash Core, visit [fcash.cash](https://fcash.cash).
+To download Fcash Core, visit [www.fcash.cash](https://www.fcash.cash/).
 
 Running
 ---------------------
@@ -28,7 +28,7 @@ Drag Fcash-Core to your applications folder, and then run Fcash-Core.
 
 ### Need Help?
 
-* See the documentation at the [Fcash Wiki](https://fcash.cash/)
+* See the documentation at the [Fcash Wiki](https://explorer.fcash.cash/)
 for help and more information.
 * Ask for help on [#fcash](http://webchat.freenode.net?channels=fcash) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net?channels=fcash).
 * Ask for help on the [FcashTalk](https://fcashtalk.io/) forums.
@@ -37,7 +37,6 @@ Building
 ---------------------
 The following are developer notes on how to build Fcash on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
-- [Dependencies](dependencies.md)
 - [OS X Build Notes](build-osx.md)
 - [Unix Build Notes](build-unix.md)
 - [Windows Build Notes](build-windows.md)
@@ -51,6 +50,7 @@ The Fcash repo's [root README](/README.md) contains relevant information on the 
 - [Developer Notes](developer-notes.md)
 - [Release Notes](release-notes.md)
 - [Release Process](release-process.md)
+- [Source Code Documentation (External Link)](https://dev.visucore.com/fcash/doxygen/)
 - [Translation Process](translation_process.md)
 - [Translation Strings Policy](translation_strings_policy.md)
 - [Travis CI](travis-ci.md)

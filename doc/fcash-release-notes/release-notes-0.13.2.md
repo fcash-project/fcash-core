@@ -1,6 +1,6 @@
 Fcash Core version 0.13.2 is now available from:
 
-  <https://download.fcash.cash/fcash-0.13.2.1/>
+  <https://www.fcash.cash/#download>
 
 This is a new major version release, including new features, various bugfixes and performance improvements, as well as updated translations.
 It is recommended to upgrade to this version.
@@ -224,10 +224,10 @@ with `-txconfirmtarget=<m>` (default: `2`).
 
 Sometimes, it is not possible to give good estimates, or an estimate
 at all. Therefore, a fallback value can be set with `-fallbackfee=<f>`
-(default: `0.0002` Fcash/kB).
+(default: `0.0002` HUC/kB).
 
 At all times, Fcash Core will cap fees at `-maxtxfee=<x>` (default:
-0.10) Fcash.
+0.10) HUC.
 Furthermore, Fcash Core will never create transactions paying less than
 the current minimum relay fee.
 Finally, a user can set the minimum fee rate for all transactions with
@@ -361,9 +361,9 @@ arbitrary TCP connections inside SSL. On e.g. Ubuntu it can be installed with:
 
     sudo apt-get install stunnel4
 
-Then, to tunnel a SSL connection on 29332 to a RPC server bound on localhost on port 19334 do:
+Then, to tunnel a SSL connection on 29527 to a RPC server bound on localhost on port 19334 do:
 
-    stunnel -d 29332 -r 127.0.0.1:19334 -p stunnel.pem -P ''
+    stunnel -d 29527 -r 127.0.0.1:19334 -p stunnel.pem -P ''
 
 It can also be set up system-wide in inetd style.
 
@@ -381,8 +381,8 @@ caching. A sample config for apache2 could look like:
     SSLCertificateKeyFile /etc/apache2/ssl/server.key
 
     <Location /fcashrpc>
-        ProxyPass http://127.0.0.1:9332/
-        ProxyPassReverse http://127.0.0.1:9332/
+        ProxyPass http://127.0.0.1:9527/
+        ProxyPassReverse http://127.0.0.1:9527/
         # optional enable digest auth
         # AuthType Digest
         # ...
@@ -877,7 +877,7 @@ covered by the txid. This provides several immediate benefits:
 
 Activation for the segwit soft fork is being managed using
 BIP9. At the beginning of the first retarget period after
-segwit's start date of 1 January 2017 miners can update the Fcash
+segwit's start date of 1 January 2018 miners can update the Fcash
 client to Fcash Core 0.13.2 to signal for segwit support. When a
 super-majority of 75% is reached segwit is activated by optional, and
 if 75% of blocks within a 8,064-block retarget period (about 3.5 days)

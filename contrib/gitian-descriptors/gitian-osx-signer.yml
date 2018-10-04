@@ -7,7 +7,7 @@ architectures:
 packages:
 - "faketime"
 remotes:
-- "url": "https://github.com/fcash-project/fcash-detached-sigs.git"
+- "url": "https://github.com/fcash-project/fcash-core-detached-sigs.git"
   "dir": "signature"
 files:
 - "fcash-osx-unsigned.tar.gz"

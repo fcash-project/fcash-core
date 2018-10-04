@@ -2,37 +2,37 @@ bitcoin (0.14.1-trusty4) trusty; urgency=medium
 
   * Re-enable UPnP support.
 
- -- Matt Corallo (BlueMatt) <matt@mattcorallo.com>  Fri, 05 May 2017 13:28:00 -0400
+ -- Matt Corallo (BlueMatt) <matt@mattcorallo.com>  Fri, 05 May 2018 13:28:00 -0400
 
 bitcoin (0.14.1-trusty3) trusty; urgency=medium
 
   * Build with qt5 if we are on a non-Ubuntu (ie non-Unity) distro.
 
- -- Matt Corallo (BlueMatt) <matt@mattcorallo.com>  Thu, 04 May 2017 17:13:00 -0400
+ -- Matt Corallo (BlueMatt) <matt@mattcorallo.com>  Thu, 04 May 2018 17:13:00 -0400
 
 bitcoin (0.14.1-trusty2) trusty; urgency=medium
 
   * Bump minimum boost version in deps.
 
- -- Matt Corallo (BlueMatt) <matt@mattcorallo.com>  Thu, 04 May 2017 17:12:00 -0400
+ -- Matt Corallo (BlueMatt) <matt@mattcorallo.com>  Thu, 04 May 2018 17:12:00 -0400
 
 bitcoin (0.14.1-trusty1) trusty; urgency=medium
 
   * New upstream release.
 
- -- Matt Corallo (BlueMatt) <matt@mattcorallo.com>  Sat, 22 Apr 2017 17:10:00 -0400
+ -- Matt Corallo (BlueMatt) <matt@mattcorallo.com>  Sat, 22 Apr 2018 17:10:00 -0400
 
 bitcoin (0.14.0-trusty1) trusty; urgency=medium
 
   * New upstream release.
 
- -- Matt Corallo (BlueMatt) <matt@mattcorallo.com>  Wed, 08 Mar 2017 10:30:00 -0500
+ -- Matt Corallo (BlueMatt) <matt@mattcorallo.com>  Wed, 08 Mar 2018 10:30:00 -0500
 
 bitcoin (0.13.2-trusty1) trusty; urgency=medium
 
   * New upstream release.
 
- -- Matt Corallo (BlueMatt) <matt@mattcorallo.com>  Thu, 05 Jan 2017 09:59:00 -0500
+ -- Matt Corallo (BlueMatt) <matt@mattcorallo.com>  Thu, 05 Jan 2018 09:59:00 -0500
 
 bitcoin (0.13.1-trusty2) trusty; urgency=medium
 
