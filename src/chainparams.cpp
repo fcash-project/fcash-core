@@ -120,7 +120,8 @@ public:
         pchMessageStart[2] = 0xb6;
         pchMessageStart[3] = 0xdb;
         nDefaultPort = 9333;
-        nPruneAfterHeight = 100000;
+        // nPruneAfterHeight = 100000;
+        nPruneAfterHeight = 10;
 
         genesis = CreateGenesisBlock(1538413446, 457520, 0x1e0ffff0, 1, 25 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
@@ -134,7 +135,7 @@ public:
         // vSeeds.emplace_back("dnsseed.thrasher.io");
         // vSeeds.emplace_back("dnsseed.fcashtools.com");
         // vSeeds.emplace_back("dnsseed.fcashpool.org");
-        // vSeeds.emplace_back("dnsseed.koin-project.com");
+        vSeeds.emplace_back("dnsseed.fcash.cash");
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,36);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,88);
@@ -224,7 +225,7 @@ public:
         // By default assume that the signatures in ancestors of this block are valid.
         // consensus.defaultAssumeValid = uint256S("0x1efb29c8187d5a496a33377941d1df415169c3ce5d8c05d055f25b683ec3f9a3"); //612653
         consensus.defaultAssumeValid = uint256S("0x01");
-        
+
 
         pchMessageStart[0] = 0xfd;
         pchMessageStart[1] = 0xd2;
