@@ -1161,14 +1161,23 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 bool IsInitialBlockDownload()
 {
     // Once this function has returned false, it must remain false.
+    printf("IsInitialBlockDownload = %s \n","1-1" );
     static std::atomic<bool> latchToFalse{false};
+    printf("IsInitialBlockDownload = %s \n","1-2" );
     // Optimization: pre-test latch before taking the lock.
     if (latchToFalse.load(std::memory_order_relaxed))
+    {
+        printf("IsInitialBlockDownload = %s \n","1-3" );
         return false;
+    }
+        
 
     LOCK(cs_main);
     if (latchToFalse.load(std::memory_order_relaxed))
+    {
+        printf("IsInitialBlockDownload = %s \n","1-4" );
         return false;
+    }
     if (fImporting || fReindex)
         return true;
     if (chainActive.Tip() == nullptr)
@@ -1177,6 +1186,7 @@ bool IsInitialBlockDownload()
         return true;
     if (chainActive.Tip()->GetBlockTime() < (GetTime() - nMaxTipAge))
         return true;
+    printf("IsInitialBlockDownload = %s \n","1-5" );
     LogPrintf("Leaving InitialBlockDownload (latching to false)\n");
     latchToFalse.store(true, std::memory_order_relaxed);
     return false;
