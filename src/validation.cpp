@@ -1180,23 +1180,23 @@ bool IsInitialBlockDownload()
     }
     if (fImporting || fReindex)
     {
-        // printf("IsInitialBlockDownload = %s \n","1-5" );
+        LogPrintf("IsInitialBlockDownload = 1-5 \n");
         return true;
     }
     if (chainActive.Tip() == nullptr)
     {
-        // printf("IsInitialBlockDownload = %s \n","1-7" );
+        LogPrintf("IsInitialBlockDownload = 1-7 \n");
         return true;
     }
     if (chainActive.Tip()->nChainWork < nMinimumChainWork)
     {
-        // printf("IsInitialBlockDownload = %s \n","1-8" );
+        printf("IsInitialBlockDownload = 1-8 \n");
         return true;
     }
         
     if (chainActive.Tip()->GetBlockTime() < (GetTime() - nMaxTipAge))
     {
-        // printf("IsInitialBlockDownload = %s \n","1-9" );
+        printf("IsInitialBlockDownload = 1-9 \n");
         return true;
     }
     LogPrintf("IsInitialBlockDownload = 1-10 \n");
