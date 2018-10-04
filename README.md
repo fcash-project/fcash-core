@@ -78,7 +78,8 @@ Translations are periodically pulled from Transifex and merged into the git repo
 **Important**: We do not accept translation changes as GitHub pull requests because the next
 pull from Transifex would automatically overwrite them again.
 
-
+Minerd
+------------
 ./minerd -o 127.0.0.1:9332 --user=fcashuser --pass=fcashpass --coinbase-addr=MVLxtz8r3G5De8pKL5UvQ7PW5TCT5W83Pd
 
 ./minerd -a scrypt -o 127.0.0.1:9332 --user=fcashuser --pass=fcashpass -t 1 -D --no-stratum --no-longpoll --no-getwork --coinbase-addr=MVLxtz8r3G5De8pKL5UvQ7PW5TCT5W83Pd
