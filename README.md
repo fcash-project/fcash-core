@@ -80,6 +80,8 @@ pull from Transifex would automatically overwrite them again.
 
 Minerd
 ------------
+./minerd -o http://127.0.0.1:9332 -u fcashuser -p fcashpass --coinbase-addr=MVLxtz8r3G5De8pKL5UvQ7PW5TCT5W83Pd -t 1 -D -P
+./minerd -o 127.0.0.1:9332 --user=fcashuser --pass=fcashpass --coinbase-addr=MVLxtz8r3G5De8pKL5UvQ7PW5TCT5W83Pd -t 1 -D -P
 ./minerd -o 127.0.0.1:9332 --user=fcashuser --pass=fcashpass --coinbase-addr=MVLxtz8r3G5De8pKL5UvQ7PW5TCT5W83Pd
 
 ./minerd -a scrypt -o 127.0.0.1:9332 --user=fcashuser --pass=fcashpass -t 1 -D --no-stratum --no-longpoll --no-getwork --coinbase-addr=MVLxtz8r3G5De8pKL5UvQ7PW5TCT5W83Pd
@@ -88,11 +90,14 @@ Minerd
 
 curl --user fcashuser:fcashpass --data-binary '{"id": 0, "method": "getblocktemplate", "params": [{"capabilities": ["coinbasetxn", "workid", "coinbase/append"]}]}' -H 'content-type: text/plain;' http://127.0.0.1:9332
 
+curl --user fcashuser:fcashpass --data-binary '{"method": "getblocktemplate", "params": [{"capabilities": ["coinbasetxn", "coinbasevalue", "longpoll", "workid"]}], "id":0}' -H 'content-type: text/plain;' http://127.0.0.1:9332
+
 
 addnode
 ------------
 ./src/fcash-cli addnode "139.162.67.34:9333" "add"
 ./src/fcash-cli addnode "59.110.9.93:9333" "add"
+./src/fcash-cli addnode "60.205.0.142:9333" "add"
 
 ./src/fcash-cli getaddednodeinfo
 

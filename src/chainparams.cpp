@@ -123,12 +123,12 @@ public:
         // nPruneAfterHeight = 100000;
         nPruneAfterHeight = 10;
 
-        genesis = CreateGenesisBlock(1538641175, 457520, 0x1e0ffff0, 1, 25 * COIN);
+        genesis = CreateGenesisBlock(1538641175, 283567, 0x1e0ffff0, 1, 25 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x9aaec864b247d55a7d745b42805deea6e62df3f190a3dd6414f2cbcd2f90427f"));
+        assert(consensus.hashGenesisBlock == uint256S("0xce463438ba6a1dc62c89613a70ff88df12c1b36df7a30db3dd4521b0fef9a27f"));
         assert(genesis.hashMerkleRoot == uint256S("0x8947999b73008ac8cda2f56d4a9fd7ec1c63c64f288753ece551edfe75652c1c"));
-        //printf("consensus.hashGenesisBlock = %s \n",consensus.hashGenesisBlock.ToString().c_str() );
-        //printf("genesis.hashMerkleRoot = %s \n",genesis.hashMerkleRoot.ToString().c_str()         );
+        // printf("consensus.hashGenesisBlock = %s \n",consensus.hashGenesisBlock.ToString().c_str() );
+        // printf("genesis.hashMerkleRoot = %s \n",genesis.hashMerkleRoot.ToString().c_str()         );
 
         // Note that of those with the service bits flag, most only support a subset of possible options
         // vSeeds.emplace_back("seed-a.fcash.loshan.co.uk");
