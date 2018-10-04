@@ -80,9 +80,9 @@ pull from Transifex would automatically overwrite them again.
 
 Minerd
 ------------
-./minerd -o http://127.0.0.1:9332 -u fcashuser -p fcashpass --coinbase-addr=MVLxtz8r3G5De8pKL5UvQ7PW5TCT5W83Pd -t 1 -D -P
-./minerd -o 127.0.0.1:9332 --user=fcashuser --pass=fcashpass --coinbase-addr=MVLxtz8r3G5De8pKL5UvQ7PW5TCT5W83Pd -t 1 -D -P
-./minerd -o 127.0.0.1:9332 --user=fcashuser --pass=fcashpass --coinbase-addr=MVLxtz8r3G5De8pKL5UvQ7PW5TCT5W83Pd
+./minerd -o http://127.0.0.1:9332 -u fcashuser -p fcashpass --coinbase-addr=MR9KZiSxmKnhnxzQFVqNbhVsKPboUycjr9 -t 1 -D -P
+./minerd -o 127.0.0.1:9332 --user=fcashuser --pass=fcashpass --coinbase-addr=MR9KZiSxmKnhnxzQFVqNbhVsKPboUycjr9 -t 1 -D -P
+./minerd -o 127.0.0.1:9332 --user=fcashuser --pass=fcashpass --coinbase-addr=MR9KZiSxmKnhnxzQFVqNbhVsKPboUycjr9
 
 ./minerd -a scrypt -o 127.0.0.1:9332 --user=fcashuser --pass=fcashpass -t 1 -D --no-stratum --no-longpoll --no-getwork --coinbase-addr=MVLxtz8r3G5De8pKL5UvQ7PW5TCT5W83Pd
 
