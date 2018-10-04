@@ -1167,7 +1167,7 @@ bool IsInitialBlockDownload()
     // Optimization: pre-test latch before taking the lock.
     if (latchToFalse.load(std::memory_order_relaxed))
     {
-        LogPrintf("IsInitialBlockDownload = 1-3 \n");
+        // LogPrintf("IsInitialBlockDownload = 1-3 \n");
         return false;
     }
         
@@ -1175,22 +1175,22 @@ bool IsInitialBlockDownload()
     LOCK(cs_main);
     if (latchToFalse.load(std::memory_order_relaxed))
     {
-        LogPrintf("IsInitialBlockDownload = 1-4 \n");
+        // LogPrintf("IsInitialBlockDownload = 1-4 \n");
         return false;
     }
     if (fImporting || fReindex)
     {
-        LogPrintf("IsInitialBlockDownload = 1-5 \n");
+        // LogPrintf("IsInitialBlockDownload = 1-5 \n");
         return true;
     }
     if (chainActive.Tip() == nullptr)
     {
-        LogPrintf("IsInitialBlockDownload = 1-7 \n");
+        // LogPrintf("IsInitialBlockDownload = 1-7 \n");
         return true;
     }
     if (chainActive.Tip()->nChainWork < nMinimumChainWork)
     {
-        LogPrintf("IsInitialBlockDownload = 1-8 \n");
+        // LogPrintf("IsInitialBlockDownload = 1-8 \n");
         return true;
     }
         
@@ -1199,7 +1199,7 @@ bool IsInitialBlockDownload()
         // LogPrintf("IsInitialBlockDownload = 1-9 1:%d  2:%d  GetTime:%d  nMaxTipAge:%d \n",chainActive.Tip()->GetBlockTime(),(GetTime() - nMaxTipAge),GetTime(), nMaxTipAge);
         return true;
     }
-    LogPrintf("IsInitialBlockDownload = 1-10 \n");
+    // LogPrintf("IsInitialBlockDownload = 1-10 \n");
     LogPrintf("Leaving InitialBlockDownload (latching to false)\n");
     latchToFalse.store(true, std::memory_order_relaxed);
     return false;
