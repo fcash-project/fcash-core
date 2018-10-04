@@ -1179,14 +1179,27 @@ bool IsInitialBlockDownload()
         return false;
     }
     if (fImporting || fReindex)
+    {
+        printf("IsInitialBlockDownload = %s \n","1-5" );
         return true;
+    }
     if (chainActive.Tip() == nullptr)
+    {
+        printf("IsInitialBlockDownload = %s \n","1-7" );
         return true;
+    }
     if (chainActive.Tip()->nChainWork < nMinimumChainWork)
+    {
+        printf("IsInitialBlockDownload = %s \n","1-8" );
         return true;
+    }
+        
     if (chainActive.Tip()->GetBlockTime() < (GetTime() - nMaxTipAge))
+    {
+        printf("IsInitialBlockDownload = %s \n","1-9" );
         return true;
-    printf("IsInitialBlockDownload = %s \n","1-5" );
+    }
+    printf("IsInitialBlockDownload = %s \n","1-10" );
     LogPrintf("Leaving InitialBlockDownload (latching to false)\n");
     latchToFalse.store(true, std::memory_order_relaxed);
     return false;
