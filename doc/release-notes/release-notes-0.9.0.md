@@ -330,7 +330,7 @@ Thanks to everyone who contributed to this release:
 - Christian Decker
 - Christian von Roques
 - Christopher Latham
-- Chuck
+- Cfcashk
 - coblee
 - constantined
 - Cory Fields

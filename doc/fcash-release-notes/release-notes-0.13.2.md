@@ -224,10 +224,10 @@ with `-txconfirmtarget=<m>` (default: `2`).
 
 Sometimes, it is not possible to give good estimates, or an estimate
 at all. Therefore, a fallback value can be set with `-fallbackfee=<f>`
-(default: `0.0002` HUC/kB).
+(default: `0.0002` Fcash/kB).
 
 At all times, Fcash Core will cap fees at `-maxtxfee=<x>` (default:
-0.10) HUC.
+0.10) Fcash.
 Furthermore, Fcash Core will never create transactions paying less than
 the current minimum relay fee.
 Finally, a user can set the minimum fee rate for all transactions with
@@ -819,8 +819,8 @@ covered by the txid. This provides several immediate benefits:
   (such as hardware wallets), reduces the amount of data the signature
   generator needs to download, and allows the signature generator to operate
   more quickly.  This is made possible by having the generator sign the amount
-  of fcashs they think they are spending, and by having full nodes refuse to
-  accept those signatures unless the amount of fcashs being spent is exactly
+  of fcash they think they are spending, and by having full nodes refuse to
+  accept those signatures unless the amount of fcash being spent is exactly
   the same as was signed.  For non-segwit transactions, wallets instead had to
   download the complete previous transactions being spent for every payment
   they made, which could be a slow operation on hardware wallets and in other

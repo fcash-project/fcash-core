@@ -118,3 +118,9 @@ src/qt/test/test_fcash-qt
 src/qt/fcash-qt
 src/fcashd
 share/pixmaps/bitcoin128的副本.png
+Fcash-Qt.app/Contents/Info.plist
+Fcash-Qt.app/Contents/MacOS/Fcash-Qt
+Fcash-Qt.app/Contents/PkgInfo
+Fcash-Qt.app/Contents/Resources/Base.lproj/InfoPlist.strings
+Fcash-Qt.app/Contents/Resources/bitcoin.icns
+Fcash-Qt.app/Contents/Resources/empty.lproj

@@ -224,9 +224,9 @@ def main():
 
     parser = optparse.OptionParser(usage="%prog [options]")
     parser.add_option("--from", dest="fromaddresses", default=None,
-                      help="addresses to get fcashs from")
+                      help="addresses to get Fcash from")
     parser.add_option("--to", dest="to", default=None,
-                      help="address to get send fcashs to")
+                      help="address to get send fcash to")
     parser.add_option("--amount", dest="amount", default=None,
                       help="amount to send")
     parser.add_option("--fee", dest="fee", default="0.0",

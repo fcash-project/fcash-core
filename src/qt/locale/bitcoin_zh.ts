@@ -108,7 +108,7 @@
     </message>
     <message>
         <source>Warning: Invalid Fcash address</source>
-        <translation>警告：欢乐币地址无效</translation>
+        <translation>警告：Fcash地址无效</translation>
     </message>
     </context>
 <context>

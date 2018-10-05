@@ -315,7 +315,7 @@ Clone the git repositories for fcash and Gitian.
 ```bash
 git clone https://github.com/devrandom/gitian-builder.git
 git clone https://github.com/fcash-project/fcash-core
-git clone https://github.com/fcash-project/gitian.sigs.huc.git
+git clone https://github.com/fcash-project/gitian.sigs.fcash.git
 ```
 
 Setting up the Gitian image
@@ -480,5 +480,5 @@ Uploading signatures
 ---------------------
 
 After building and signing you can push your signatures (both the `.assert` and `.assert.sig` files) to the
-[fcash-project/gitian.sigs.huc](https://github.com/fcash-project/gitian.sigs.huc/) repository, or if that's not possible create a pull
+[fcash-project/gitian.sigs.fcash](https://github.com/fcash-project/gitian.sigs.fcash/) repository, or if that's not possible create a pull
 request. You can also mail the files to thrasher (thrasher@addictionsofware.com) and he will commit them.

@@ -168,7 +168,7 @@
         <translation>Conferma la cifratura del portamonete</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR FCASHS&lt;/b&gt;!</source>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR FCASH&lt;/b&gt;!</source>
         <translation>Attenzione: perdendo la passphrase di un portamonete cifrato &lt;b&gt;TUTTI I PROPRI FCASH ANDRANNO PERSI&lt;/b&gt;!</translation>
     </message>
     <message>
@@ -335,7 +335,7 @@
     </message>
     <message>
         <source>Send coins to a Fcashddress</source>
-        <translation>Invia fondi ad un indirizzo Fcashtranslation>
+        <translation>Invia fondi ad un indirizzo Fcash</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -358,8 +358,8 @@
         <translation>&amp;Verifica messaggio...</translation>
     </message>
     <message>
-        <source>Fcashsource>
-        <translation>Fcashtranslation>
+        <source>Fcash</source>
+        <translation>Fcash</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -431,7 +431,7 @@
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to Fcashetwork</source>
-        <translation><numerusform>%n connessione attiva alla rete Fcashnumerusform><numerusform>%n connessioni alla rete FcFcashive</numerusform></translation>
+        <translation><numerusform>%n connessione attiva alla rete Fcash</numerusform><numerusform>%n connessioni alla rete FcFcashive</numerusform></translation>
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -475,7 +475,7 @@
     </message>
     <message>
         <source>Show the %1 help message to get a list with possible Fcashommand-line options</source>
-        <translation>Mostra il messaggio di aiuto di %1 per ottenere una lista di opzioni di comando per Fcash/translation>
+        <translation>Mostra il messaggio di aiuto di %1 per ottenere una lista di opzioni di comando per Fcash</translation>
     </message>
     <message>
         <source>%1 client</source>
@@ -1790,7 +1790,7 @@ Per specificare più URL separarli con una barra verticale "|".</translation>
     </message>
     <message>
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Fcashetwork.</source>
-        <translation>Un messaggio opzionale da allegare e mostrare all'apertura della richiesta di pagamento. Nota: Il messaggio non sarà inviato con il pagamento sulla rete Fcash/translation>
+        <translation>Un messaggio opzionale da allegare e mostrare all'apertura della richiesta di pagamento. Nota: Il messaggio non sarà inviato con il pagamento sulla rete Fcash</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1943,7 +1943,7 @@ Per specificare più URL separarli con una barra verticale "|".</translation>
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>Invia Fcashtranslation>
+        <translation>Invia Fcash</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
@@ -2237,7 +2237,7 @@ Per specificare più URL separarli con una barra verticale "|".</translation>
         <translation>Rimuovi questa voce</translation>
     </message>
     <message>
-        <source>The fee will be deducted from the amount being sent. The recipient will receive less fcashs than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
+        <source>The fee will be deducted from the amount being sent. The recipient will receive less fcash than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
         <translation>La commissione sarà sottratta dall'importo che si sta inviando. Il beneficiario riceverà un totale di fcash inferiore al valore digitato. Nel caso in cui siano stati selezionati più beneficiari la commissione sarà suddivisa in parti uguali.</translation>
     </message>
     <message>
@@ -2262,7 +2262,7 @@ Per specificare più URL separarli con una barra verticale "|".</translation>
     </message>
     <message>
         <source>A message that was attached to the fcash: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Fcashetwork.</source>
-        <translation>Messaggio incluso nel fcash URI e che sarà memorizzato con la transazione per vostro riferimento. Nota: Questo messaggio non sarà inviato attraverso la rete Fcash/translation>
+        <translation>Messaggio incluso nel fcash URI e che sarà memorizzato con la transazione per vostro riferimento. Nota: Questo messaggio non sarà inviato attraverso la rete Fcash</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -2302,7 +2302,7 @@ Per specificare più URL separarli con una barra verticale "|".</translation>
         <translation>&amp;Firma Messaggio</translation>
     </message>
     <message>
-        <source>You can sign messages/agreements with your addresses to prove you can receive fcashs sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
+        <source>You can sign messages/agreements with your addresses to prove you can receive fcash sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
         <translation>È possibile firmare messaggi/accordi con i propri indirizzi in modo da dimostrare di poter ricevere fcash attraverso di essi. Si consiglia di prestare attenzione a non firmare dichiarazioni vaghe o casuali, attacchi di phishing potrebbero cercare di indurre ad apporre la firma su di esse. Si raccomanda di firmare esclusivamente dichiarazioni completamente dettagliate e delle quali si condivide in pieno il contenuto.</translation>
     </message>
     <message>
@@ -2339,7 +2339,7 @@ Per specificare più URL separarli con una barra verticale "|".</translation>
     </message>
     <message>
         <source>Sign the message to prove you own this Fcashddress</source>
-        <translation>Firma un messaggio per dimostrare di possedere questo indirizzo Fcashtranslation>
+        <translation>Firma un messaggio per dimostrare di possedere questo indirizzo Fcash</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -2850,7 +2850,7 @@ Per specificare più URL separarli con una barra verticale "|".</translation>
     <name>WalletModel</name>
     <message>
         <source>Send Coins</source>
-        <translation>Invia Fcashtranslation>
+        <translation>Invia Fcash</translation>
     </message>
 </context>
 <context>
