@@ -1019,9 +1019,16 @@ bool ReadBlockFromDisk(CBlock& block, const CBlockIndex* pindex, const Consensus
 
 CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 {
-    if(nHeight == 69)
-        return 84000050; // Pre-excavate 84 million Fcash. Among them, 33.6 million private equity, 16.8 million ecological construction, 16.8 million team holding, 16.8 million foundation
-        
+    if(nHeight < 100)
+    {   // Pre-excavate 84 million Fcash. Among them, 33.6 million private equity, 16.8 million ecological construction, 16.8 million team holding, 16.8 million foundation
+        if(nHeight == 99)
+            return 84000050 * COIN;
+        if(nHeight == 89)
+            return 50 * COIN - 84000050;
+        if(nHeight == 69)
+            return 84000050; 
+    }
+      
     int halvings = nHeight / consensusParams.nSubsidyHalvingInterval;
     // Force block reward to zero when right shift is undefined.
     if (halvings >= 64)
