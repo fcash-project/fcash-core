@@ -400,9 +400,9 @@ For example:
 ```bash
 URL=https://github.com/thrasher-/fcash.git
 COMMIT=2014_03_windows_unicode_path
-./bin/gbuild --commit fcash=${COMMIT} --url fcash=${URL} ../fcash/contrib/gitian-descriptors/gitian-linux.yml
-./bin/gbuild --commit fcash=${COMMIT} --url fcash=${URL} ../fcash/contrib/gitian-descriptors/gitian-win.yml
-./bin/gbuild --commit fcash=${COMMIT} --url fcash=${URL} ../fcash/contrib/gitian-descriptors/gitian-osx.yml
+./bin/gbuild --commit fcash=${COMMIT} --url fcash=${URL} ../fcash-core/contrib/gitian-descriptors/gitian-linux.yml
+./bin/gbuild --commit fcash=${COMMIT} --url fcash=${URL} ../fcash-core/contrib/gitian-descriptors/gitian-win.yml
+./bin/gbuild --commit fcash=${COMMIT} --url fcash=${URL} ../fcash-core/contrib/gitian-descriptors/gitian-osx.yml
 ```
 
 Building fully offline
@@ -428,7 +428,7 @@ cd /path/to/gitian-builder
 LXC_ARCH=amd64 LXC_SUITE=trusty on-target -u root apt-get update
 LXC_ARCH=amd64 LXC_SUITE=trusty on-target -u root \
   -e DEBIAN_FRONTEND=noninteractive apt-get --no-install-recommends -y install \
-  $( sed -ne '/^packages:/,/[^-] .*/ {/^- .*/{s/"//g;s/- //;p}}' ../fcash/contrib/gitian-descriptors/*|sort|uniq )
+  $( sed -ne '/^packages:/,/[^-] .*/ {/^- .*/{s/"//g;s/- //;p}}' ../fcash-core/contrib/gitian-descriptors/*|sort|uniq )
 LXC_ARCH=amd64 LXC_SUITE=trusty on-target -u root apt-get -q -y purge grub
 LXC_ARCH=amd64 LXC_SUITE=trusty on-target -u root -e DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade
 ```
@@ -450,10 +450,10 @@ Then when building, override the remote URLs that gbuild would otherwise pull fr
 cd /some/root/path/
 git clone https://github.com/fcash-project/fcash-core-detached-sigs.git
 
-BTCPATH=/some/root/path/fcash
+BTCPATH=/some/root/path/fcash-core
 SIGPATH=/some/root/path/fcash-detached-sigs
 
-./bin/gbuild --url fcash=${BTCPATH},signature=${SIGPATH} ../fcash/contrib/gitian-descriptors/gitian-win-signer.yml
+./bin/gbuild --url fcash=${BTCPATH},signature=${SIGPATH} ../fcash-core/contrib/gitian-descriptors/gitian-win-signer.yml
 ```
 
 Signing externally

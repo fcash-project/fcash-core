@@ -34,7 +34,7 @@ Build Fcash Core
 1. Clone the fcash source code and cd into `fcash`
 
         git clone https://github.com/fcash-project/fcash-core
-        cd fcash
+        cd fcash-core
 
 2.  Build fcash-core:
 

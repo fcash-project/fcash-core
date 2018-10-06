@@ -277,7 +277,7 @@ This example lists the steps necessary to setup and build a command line only, n
 
     pacman -S git base-devel boost libevent python
     git clone https://github.com/fcash-project/fcash-core.git
-    cd fcash/
+    cd fcash-core/
     ./autogen.sh
     ./configure --disable-wallet --without-gui --without-miniupnpc
     make check

@@ -95,7 +95,7 @@ Create the OS X SDK tarball, see the [OS X readme](README_osx.md) for details, a
 By default, Gitian will fetch source files as needed. To cache them ahead of time:
 
     pushd ./gitian-builder
-    make -C ../fcash/depends download SOURCES_PATH=`pwd`/cache/common
+    make -C ../fcash-core/depends download SOURCES_PATH=`pwd`/cache/common
     popd
 
 Only missing files will be fetched, so this is safe to re-run for each build.
@@ -111,17 +111,17 @@ The gbuild invocations below <b>DO NOT DO THIS</b> by default.
 ### Build and sign Fcash Core for Linux, Windows, and OS X:
 
     pushd ./gitian-builder
-    ./bin/gbuild --num-make 2 --memory 3000 --commit fcash=v${VERSION} ../fcash/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs.fcash/ ../fcash/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gbuild --num-make 2 --memory 3000 --commit fcash=v${VERSION} ../fcash-core/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs.fcash/ ../fcash-core/contrib/gitian-descriptors/gitian-linux.yml
     mv build/out/fcash-*.tar.gz build/out/src/fcash-*.tar.gz ../
 
-    ./bin/gbuild --num-make 2 --memory 3000 --commit fcash=v${VERSION} ../fcash/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs.fcash/ ../fcash/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gbuild --num-make 2 --memory 3000 --commit fcash=v${VERSION} ../fcash-core/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs.fcash/ ../fcash-core/contrib/gitian-descriptors/gitian-win.yml
     mv build/out/fcash-*-win-unsigned.tar.gz inputs/fcash-win-unsigned.tar.gz
     mv build/out/fcash-*.zip build/out/fcash-*.exe ../
 
-    ./bin/gbuild --num-make 2 --memory 3000 --commit fcash=v${VERSION} ../fcash/contrib/gitian-descriptors/gitian-osx.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs.fcash/ ../fcash/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gbuild --num-make 2 --memory 3000 --commit fcash=v${VERSION} ../fcash-core/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs.fcash/ ../fcash-core/contrib/gitian-descriptors/gitian-osx.yml
     mv build/out/fcash-*-osx-unsigned.tar.gz inputs/fcash-osx-unsigned.tar.gz
     mv build/out/fcash-*.tar.gz build/out/fcash-*.dmg ../
     popd
@@ -138,15 +138,15 @@ Build output expected:
 
 Add other gitian builders keys to your gpg keyring, and/or refresh keys.
 
-    gpg --import fcash/contrib/gitian-keys/*.pgp
+    gpg --import fcash-core/contrib/gitian-keys/*.pgp
     gpg --refresh-keys
 
 Verify the signatures
 
     pushd ./gitian-builder
-    ./bin/gverify -v -d ../gitian.sigs.fcash/ -r ${VERSION}-linux ../fcash/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gverify -v -d ../gitian.sigs.fcash/ -r ${VERSION}-win-unsigned ../fcash/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gverify -v -d ../gitian.sigs.fcash/ -r ${VERSION}-osx-unsigned ../fcash/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gverify -v -d ../gitian.sigs.fcash/ -r ${VERSION}-linux ../fcash-core/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gverify -v -d ../gitian.sigs.fcash/ -r ${VERSION}-win-unsigned ../fcash-core/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gverify -v -d ../gitian.sigs.fcash/ -r ${VERSION}-osx-unsigned ../fcash-core/contrib/gitian-descriptors/gitian-osx.yml
     popd
 
 ### Next steps:
@@ -200,18 +200,18 @@ Non-codesigners: wait for Windows/OS X detached signatures:
 Create (and optionally verify) the signed OS X binary:
 
     pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../fcash/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs.fcash/ ../fcash/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs.fcash/ -r ${VERSION}-osx-signed ../fcash/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gbuild -i --commit signature=v${VERSION} ../fcash-core/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs.fcash/ ../fcash-core/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs.fcash/ -r ${VERSION}-osx-signed ../fcash-core/contrib/gitian-descriptors/gitian-osx-signer.yml
     mv build/out/fcash-osx-signed.dmg ../fcash-${VERSION}-osx.dmg
     popd
 
 Create (and optionally verify) the signed Windows binaries:
 
     pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../fcash/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs.fcash/ ../fcash/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs.fcash/ -r ${VERSION}-win-signed ../fcash/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gbuild -i --commit signature=v${VERSION} ../fcash-core/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs.fcash/ ../fcash-core/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs.fcash/ -r ${VERSION}-win-signed ../fcash-core/contrib/gitian-descriptors/gitian-win-signer.yml
     mv build/out/fcash-*win64-setup.exe ../fcash-${VERSION}-win64-setup.exe
     mv build/out/fcash-*win32-setup.exe ../fcash-${VERSION}-win32-setup.exe
     popd
