@@ -188,7 +188,7 @@ class DeploymentInfo(object):
                 self.pluginPath = pluginPath
     
     def usesFramework(self, name):
-        nameDot = "%s." % name
+        nameDot    = "%s." % name
         libNameDot = "lib%s." % name
         for framework in self.deployedFrameworks:
             if framework.endswith(".framework"):
@@ -222,9 +222,10 @@ def getFrameworks(binaryPath, verbose):
         info = FrameworkInfo.fromOtoolLibraryLine(line.strip())
         if info is not None:
             if verbose >= 3:
-                print("Found framework:")
+                print("Found framework:") 
                 print(info)
             libraries.append(info)
+            # print("------- Info:", info)
     
     return libraries
 
@@ -260,9 +261,11 @@ def copyFramework(framework, path, verbose):
         fromPath = "/Library/Frameworks/" + framework.sourceFilePath
     else:
         fromPath = framework.sourceFilePath
-    toDir = os.path.join(path, framework.destinationDirectory)
+    toDir  = os.path.join(path, framework.destinationDirectory)
     toPath = os.path.join(toDir, framework.binaryName)
-    
+
+    # print("        Processing  -- fromPath:", fromPath)
+    # print("        Processing  --   toPath:", toPath)
     if not os.path.exists(fromPath):
         raise RuntimeError("No file at " + fromPath)
     
@@ -332,14 +335,20 @@ def deployFrameworks(frameworks, bundlePath, binaryPath, strip, verbose, deploym
             deploymentInfo.detectQtPath(framework.frameworkDirectory)
         
         if framework.installName.startswith("@executable_path") or framework.installName.startswith(bundlePath):
-            if verbose >= 2:
+            if "libboost_system-mt.dylib" == framework.frameworkName :
+                framework.installName    = "/usr/local/lib/libboost_system-mt.dylib"
+                framework.binaryPath     = "/usr/local/lib/libboost_system-mt.dylib"
+                framework.sourceFilePath = "/usr/local/lib/libboost_system-mt.dylib"
+                print("        already 0:",framework.frameworkName, "libboost_system-mt.dylib.")
+            elif verbose >= 2:
                 print(framework.frameworkName, "already deployed, skipping.")
-            continue
-        
+                continue
         # install_name_tool the new id into the binary
         changeInstallName(framework.installName, framework.deployedInstallName, binaryPath, verbose)
-        
         # Copy framework to app bundle.
+
+        # print("        Processing         bundlePath 1:", bundlePath, "  ", verbose)
+        # print("        Processing        framework 1-2:", framework)
         deployedBinaryPath = copyFramework(framework, bundlePath, verbose)
         # Skip the rest if already was deployed.
         if deployedBinaryPath is None:
@@ -347,15 +356,17 @@ def deployFrameworks(frameworks, bundlePath, binaryPath, strip, verbose, deploym
         
         if strip:
             runStrip(deployedBinaryPath, verbose)
-        
+       
+        # print("        Processing deployedInstallName 2:", framework.deployedInstallName, "  ", deployedBinaryPath,"  ", verbose)
         # install_name_tool it a new id.
         changeIdentification(framework.deployedInstallName, deployedBinaryPath, verbose)
+
+        # print("        Processing  deployedBinaryPath 3:", deployedBinaryPath, "  ", verbose)
         # Check for framework dependencies
         dependencies = getFrameworks(deployedBinaryPath, verbose)
         
         for dependency in dependencies:
             changeInstallName(dependency.installName, dependency.deployedInstallName, deployedBinaryPath, verbose)
-            
             # Deploy framework if necessary.
             if dependency.frameworkName not in deploymentInfo.deployedFrameworks and dependency not in frameworks:
                 frameworks.append(dependency)
